@@ -16,6 +16,13 @@ function updateTime() {
   parisTimeElement.innerHTML = parisTime.format(
     "hh:mm:ss [<small>]A[</small>]"
   );
+
+  let fijiElement = document.querySelector("#fiji");
+  let fijiDateElement = fijiElement.querySelector(".date");
+  let fijiTimeElement = fijiElement.querySelector(".time");
+  let fijiTime = moment().tz("Pacific/Fiji");
+  fijiDateElement.innerHTML = fijiTime.format("MMMM Do YYYY");
+  fijiTimeElement.innerHTML = fijiTime.format("hh:mm:ss [<small>]A[</small>]");
 }
 
 function updateCity(event) {
@@ -34,7 +41,8 @@ function updateCity(event) {
           <div class="time">${cityTime.format(
             "hh:mm:ss "
           )}<small>${cityTime.format("A")}</small></div>
-        </div>`;
+        </div>
+        <a href="/">All cities</a>`;
 }
 
 let citySelectElement = document.querySelector("#cities");
